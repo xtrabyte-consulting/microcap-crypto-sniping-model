@@ -1,0 +1,31 @@
+
+Feature: mcap, Coefficient: -0.00
+Feature: worth, Coefficient: 0.00
+Feature: contract_age, Coefficient: 0.00
+Feature: pair_age, Coefficient: -0.00
+Feature: funding_time, Coefficient: 0.00
+Feature: airdrops, Coefficient: 0.00
+Feature: amount, Coefficient: -0.00
+Feature: wallet, Coefficient: -0.00
+Feature: holds_amt, Coefficient: 0.00
+Feature: whales_qty, Coefficient: 0.00
+
+
+Feature: liquidity, Coefficient: -1.46
+Feature: buy, Coefficient: -0.03
+Feature: sell, Coefficient: -0.02
+Feature: scams, Coefficient: 1.62
+Feature: ape_score, Coefficient: -0.30
+Feature: safu_score, Coefficient: -0.55
+Feature: buy_tax, Coefficient: -0.43
+Feature: sell_tax, Coefficient: 0.35
+Feature: owner_quant, Coefficient: -0.11
+Feature: holds_qty, Coefficient: 0.13
+Feature: spoofed_qty, Coefficient: -2.00
+Feature: spoofed_pct, Coefficient: 0.66
+Feature: snipers_qty, Coefficient: -1.67
+Feature: snipers_pct, Coefficient: 0.82
+Feature: fresh_qty, Coefficient: -0.36
+Feature: fresh_pct, Coefficient: 0.96
+Feature: whales_pct, Coefficient: -0.42
+Feature: safu_score_qty, Coefficient: -0.01

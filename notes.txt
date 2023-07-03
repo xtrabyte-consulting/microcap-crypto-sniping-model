@@ -1,0 +1,47 @@
+"name": "AllFather Buy! 🐋",
+"status": "Below 100K 🟥🟥🟥",
+"ticker": "🪙 #ALLFATHER",
+"mcap": 57285,
+"liquidity": 17.5,
+"📈 Buy": "(0) 0 - $0", //(0)
+"📉 Sell": "(19) 19 - $0", //19
+"🔖 Tax": "4/3.6", //4, split, 3.6
+"🍯 HP": "🟢 (false) - 16/16",// remove if true
+"🔒 Lp": "Unknown Lock", // ignore
+"ℹ CA (Verified ✅)": "0x2d019a83e5a83b3c7b222cd908b13c1c72707fd6", // ignore
+"└─ Scams": "18 out of 30", // divide
+"🚫 Owner": "0x3c2...1c  (17)", // split to 2, parantheses & type
+"└─ Worth": "$775", 
+"⌚ Contract Age": "1 days 10 hrs", // date
+"👯‍♂️ Pair Age": "1 mins", // date 
+"🏦 Funding": "12 days ago", // seconds
+"└─ Source": "0x3bb...f8", // boolean
+"👥 Hds": "21 (516.3 ETH)", // total 
+"└─ Spoofed": "1 own 3.8%", // in eth
+"└─ Snipers": "2 own 4.7%", // ''
+"└─ Fresh": "2 own 5.8%", // ''
+"└─ Whales": "6 own 17.8%", // ''
+"└─ Airdrops": "1", // ''
+"🤑 Amount": "$189", // number 
+"🐋 Wallet": "0x82b...8A ($3,508)", // clip hex
+"🦍 ApeScore": "🟢 33%", // percent
+"🛡 SafuScore": "69% out of 16", // just percent
+"date": "16:22:33", // 
+"endDate": "16:35:36:957",
+"result": "-44.4136"
+
+df['contract_age'] = df['contract_age'].str.split
+df['contract_days', 'contract_hrs'] = df['contract_age'].str.split('days', expand=True)
+df['contract_hrs', 'contract_mins'] = df['contract_hrs'].str.split('mins', expand=True)
+df['contract_age'] = (pd.to_numeric(df['contract_days']) * 1440) + (pd.to_numeric(df['contract_hrs']) * 60) + (df['contract_mins'])
+df['pair_age'] = df['pair_age'].str.replace(' ', '')
+df['pair_days', 'pair_hrs'] = df['pair_age'].str.split('days', expand=True)
+df['pair_hrs', 'pair_mins'] = df['contract_hrs'].str.split('mins', expand=True)
+df['pair_age'] = (pd.to_numeric(df['pair_days']) * 1440) + (pd.to_numeric(df['pair_hrs']) * 60) + (df['pair_mins'])
+df['funding_time', '']
+
+
+df[['scammed', 'total']] = df['scams'].str.split(' out of ', expand=True)
+df['scammed'] = pd.to_numeric(df['scammed'])
+df['total'] = pd.to_numeric(df['total'])
+df['scams'] = df['scammed'] / df['total']
