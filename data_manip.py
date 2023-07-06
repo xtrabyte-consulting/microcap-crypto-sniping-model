@@ -1,3 +1,5 @@
+import json
+import csv
 import pandas as pd
 import sys
 from sklearn.preprocessing import OneHotEncoder
@@ -26,10 +28,10 @@ def parse_time_entry(entry: str):
 
 def parse_individuals(entry: str):
     if entry[:2] == '0x':
-        entry = 'INDIVIDUAL'
+        entry = 'INDIVIDUAL' 
     return entry
 
-def parse_scammed(entry) -> float:
+def parse_scammed(entry: str) -> float:
     if entry == '0 out of 0 Unique':
         return 0.0
     scammed, total = entry.split(' out of ')
@@ -38,7 +40,32 @@ def parse_scammed(entry) -> float:
     if total[-1] == 'k':
         total = float(total[:-1]) * 1000
     return int(scammed) / int(total)
-    
+
+json_file_path = 'data.json'
+
+input_csv_file = 'raw_data.csv'
+
+field_names = set()
+
+# Collect the field names
+with open(json_file_path) as json_file:
+    data = json.load(json_file)
+    for entry in data:
+        field_names.update(entry.keys())
+
+with open(json_file_path) as json_file:
+    data = json.load(json_file)
+
+# Write to a CSV
+with open(input_csv_file, 'w', newline='') as csv_file:
+    writer = csv.DictWriter(csv_file, fieldnames=field_names)
+    writer.writeheader()
+    for entry in data:
+        writer.writerow(entry)
+        
+fields_to_drop = ['endDate', 'ℹ CA (Verified ✅)', 'name', 'ticker', '✅ Prev', '└─ ATH', '🚩 Flags', 'sticker', '🔒 Lp']
+
+
 input_csv_file = 'dropped.csv'
 
 # Path to the output CSV file

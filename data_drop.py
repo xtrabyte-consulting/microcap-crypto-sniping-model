@@ -4,10 +4,10 @@ import pandas as pd
 input_csv_file = 'data.csv'
 
 # Path to the output CSV file
-output_csv_file = 'dropped.csv'
+output_csv_file = 'dropped_test.csv'
 
 # List of field names to be dropped
-fields_to_drop = ['ℹ CA (Verified ✅)', 'name', 'ticker', '✅ Prev', '└─ ATH', '🚩 Flags', 'sticker', '🔒 Lp']
+fields_to_drop = ['ℹ CA (Verified ✅)', 'endDate', 'name', 'ticker', '✅ Prev', '└─ ATH', '🚩 Flags', 'date', '🍯 HP', 'sticker', '🔒 Lp']
 
 # Read the input CSV file
 df = pd.read_csv(input_csv_file)

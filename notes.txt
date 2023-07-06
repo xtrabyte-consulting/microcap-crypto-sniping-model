@@ -45,3 +45,8 @@ df[['scammed', 'total']] = df['scams'].str.split(' out of ', expand=True)
 df['scammed'] = pd.to_numeric(df['scammed'])
 df['total'] = pd.to_numeric(df['total'])
 df['scams'] = df['scammed'] / df['total']
+
+DTree->36/39
+SVC->49/26
+KNN->41/34
+
